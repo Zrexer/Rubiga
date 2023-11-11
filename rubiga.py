@@ -254,6 +254,43 @@ class C:
                             for au1 in authFile:
                                 for ke1 in keyFile:
                                     C(au1, ke1, link_, guid_, text_).attack_on_gap_use_leave()
+                                    
+            elif "check-userid" in splitUser:
+                try:
+                    username_ = splitUser[splitUser.index('check-userid')+1]
+                    
+                    # use with first auth and first key
+                    authToCheck = authFile[0]
+                    keyToCheck = keyFile[0]
+                    
+                    client = pyrubi.Client(auth=authToCheck, private=keyToCheck, platform="android")
+                    
+                    checkTime = time.strftime('%H:%M:%S')
+                    print(colors.infoMessage(checkTime, client.check_user_username(username_)))
+                    pass
+                except Exception as ECUI:
+                    ecuiTime = time.strftime('%H:%M:%S')
+                    print(colors.errorMessage(ecuiTime, f'Error: {ECUI}'))
+                    pass
+            
+            elif "check-channelid" in splitUser:
+                try:
+                    channelnName_ = splitUser[splitUser.index('check-channelid')+1]
+                    
+                    # use with first auth and first key
+                    authToCheck = authFile[0]
+                    keyToCheck = keyFile[0]
+                    
+                    client = pyrubi.Client(auth=authToCheck, private=keyToCheck, platform="android")
+                    
+                    checkTime = time.strftime('%H:%M:%S')
+                    print(colors.infoMessage(checkTime, client.check_channel_username(channelnName_)))
+                    pass
+                except Exception as ECCI:
+                    ecciTime = time.strftime('%H:%M:%S')
+                    print(colors.errorMessage(ecciTime, f'Error: {ECCI}'))
+                    pass
+            
 
 
 if __name__ == "__main__":
