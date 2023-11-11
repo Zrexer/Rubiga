@@ -1,6 +1,8 @@
 import os
 import pyrubi
 import time
+import auths
+import keys
 
 class colors:
     ''' Main Colors '''
@@ -213,8 +215,8 @@ class C:
     def Activity(self):
         print(colors.printBanner())
         
-        authFile = open(f"{self.path}\\auths.txt", 'r').readlines()
-        keyFile = open(f"{self.path}\\keys.txt", 'r').readlines()
+        authFile = auths.Auths
+        keyFile = keys.Keys
         
         while 1:
             user = str(input(f'\n{colors.white}{colors.underline}Rubiga{colors.white} > '))
